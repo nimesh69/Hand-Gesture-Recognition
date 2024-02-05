@@ -54,9 +54,11 @@ def extract_keypoints(results):
     return np.concatenate([pose,face,lh,rh])
 #path for exported data, numpy arrays
 DATA_PATH = os.path.join('Frame_Data')
-IMAGES_PATH= os.path.join('Frame_collection')
+# IMAGES_PATH= os.path.join('Frame_collection')
 #action that we are creating and detect
-actions = np.array(['Ambulance','Bathroom','Be Careful','Bleeding','Good morning','help','name','relax','slowly'])
+# actions=np.array(['Ambulance','Bathroom','Be Careful','Bleeding','Good Morning','Help','Name','Relax','Slowly'])
+# actions=np.array(['Dhanebad','Doctor','Emergency','Happy','Heart_attack','Please','Police','You'])
+actions = np.array(['Aausadi','Eklopan','Firstaid','Need','Sign','Sorry'])
 
 #thirty videos worth of data
 no_sequences = 50
@@ -65,7 +67,7 @@ no_sequences = 50
 sequence_length = 60
 label_map= {label:num for num, label in enumerate(actions)}
 # Provide the path to your saved model
-model_path = r'D:\actiondetection\action.h5'
+model_path = r'D:\hand gesture recognition\simal.h5'
 # model_path = r'C:\Users\Dell\Downloads\1-7.h5'
 # Load the model
 loaded_model = load_model(model_path)
@@ -96,8 +98,8 @@ with mp_holistic.Holistic(min_detection_confidence=0.5, min_tracking_confidence=
         
         if len(sequence) == 60:
             res = loaded_model.predict(np.expand_dims(sequence, axis=0))[0]
-            # print(actions[np.argmax(res)])
-            # print("Confidence values:", res)
+            print(actions[np.argmax(res)])
+            # print("Confidence values:", np.argmax(res))
             print("Predicted Action:", actions[np.argmax(res)])
             predictions.append(np.argmax(res))
 
