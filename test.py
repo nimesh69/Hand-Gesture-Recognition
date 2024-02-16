@@ -1,18 +1,10 @@
+from keras.models import load_model
 import cv2
 import numpy as np
 import os
-from matplotlib import pyplot as plt
 import time
 import mediapipe as mp
 from mediapipe.python.solutions import holistic
-import tensorflow as tf
-from sklearn.model_selection import train_test_split
-from keras.utils import to_categorical
-from keras.models import Sequential
-from keras.layers import LSTM, Dense, Dropout,Bidirectional,BatchNormalization
-from keras.callbacks import TensorBoard
-from keras.regularizers import l2
-from keras.models import load_model
 mp_drawing=mp.solutions.drawing_utils   #holistic model
 mp_holistic=mp.solutions.holistic       #drawing utilities
 def mediapipe_detection(image,model):
@@ -46,29 +38,20 @@ def draw_style_landmarks(image, results):
                               mp_drawing.DrawingSpec(color=(255,255,255), thickness=2, circle_radius=1),   #color dot
                               mp_drawing.DrawingSpec(color=(0,0,0), thickness=2, circle_radius=2)    #color line
                               )
+
 def extract_keypoints(results):
     pose = np.array([[res.x,res.y,res.y,res.visibility] for res in results.pose_landmarks.landmark]).flatten() if results.pose_landmarks else np.zeros(33*4)
     face = np.array([[res.x,res.y,res.y] for res in results.face_landmarks.landmark]).flatten() if results.face_landmarks else np.zeros(468*3)
     lh = np.array([[res.x,res.y,res.y] for res in results.left_hand_landmarks.landmark]).flatten() if results.left_hand_landmarks else np.zeros(21*3)
     rh = np.array([[res.x,res.y,res.y] for res in results.right_hand_landmarks.landmark]).flatten() if results.right_hand_landmarks else np.zeros(21*3)
     return np.concatenate([pose,face,lh,rh])
-#path for exported data, numpy arrays
-DATA_PATH = os.path.join('Frame_Data')
-# IMAGES_PATH= os.path.join('Frame_collection')
-#action that we are creating and detect
-# actions=np.array(['Ambulance','Bathroom','Be Careful','Bleeding','Good Morning','Help','Name','Relax','Slowly'])
-# actions=np.array(['Dhanebad','Doctor','Emergency','Happy','Heart_attack','Please','Police','You'])
-actions = np.array(['Aausadi','Eklopan','Firstaid','Need','Sign','Sorry'])
-
-#thirty videos worth of data
-no_sequences = 50
-
-#videos are going to be 60 frames in length
-sequence_length = 60
-label_map= {label:num for num, label in enumerate(actions)}
+actions=np.array(['Aausadi','Ambulance','Bathroom','Be Careful','Bleeding','Call','Dhanebad','Doctor','Dont Understand','Eklopan',
+                  'Emergency','Firstaid','Good Morning','Happy','Heart_attack','Hello','Help','Hospital','Name','Need','Nice To Meet You',
+                  'Oxygen','Pain','Please','Police','Relax','Sign','Slowly','Sorry','What','Yes','You'])
 # Provide the path to your saved model
-model_path = r'D:\hand gesture recognition\simal.h5'
+model_path = r'C:\Users\Dell\Desktop\New folder\combinebilstm.h5'
 # model_path = r'C:\Users\Dell\Downloads\1-7.h5'
+
 # Load the model
 loaded_model = load_model(model_path)
 sequence = []
@@ -98,8 +81,8 @@ with mp_holistic.Holistic(min_detection_confidence=0.5, min_tracking_confidence=
         
         if len(sequence) == 60:
             res = loaded_model.predict(np.expand_dims(sequence, axis=0))[0]
-            print(actions[np.argmax(res)])
-            # print("Confidence values:", np.argmax(res))
+            # print(actions[np.argmax(res)])
+            # print("Confidence values:", res)
             print("Predicted Action:", actions[np.argmax(res)])
             predictions.append(np.argmax(res))
 
