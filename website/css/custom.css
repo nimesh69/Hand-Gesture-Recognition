@@ -84,11 +84,11 @@ button {
 }
 
 #feature-first {
-    background: linear-gradient(168deg, #ffffff 55%, #00FFAD 0);
+    background: linear-gradient(168deg, #ffffff 55%, #79E0EE 0);
 }
 
 #feature-last {
-    background: #00FFAD;
+    background: #79E0EE
 }
 
 /********** price table **********/
@@ -202,6 +202,11 @@ button {
 .dropdown-content a:hover {
     color: rgb(255, 255, 255); /* Change color on hover as desired */
 }
+
+    
+
+
+
 /********** RWD **********/
 @media (max-width: 575px) {
     #banner h1 {
