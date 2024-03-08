@@ -12,9 +12,11 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
 	<!-- font-awesome -->
     <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     
     <!-- AOS -->
     <link rel="stylesheet" href="css/aos.css">
+    
 </head>
 
 <body>
@@ -26,9 +28,9 @@
                     <div class="col-2">
                         <img src="img/KCHH-sign-language-hello-removebg-preview.png" alt="logo">
                     </div>
-                    <a href="index.html">Home</a>
-                    <a href="testing.html">Testing</a>
-                    <a href="Collection.html">Collection</a>
+                    <a href="index.html" class="page">Home</a>
+                    <a href="testing.html" class="page">Testing</a>
+                    <a href="Collection.html" class="page">Collection</a>
                     <div class="col-6 align-self-center text-right">
                         
                     </div>
@@ -42,7 +44,9 @@
                 Experience the power of real-time gesture recognition using machine learning. Explore our interactive featuress
                 <br>  and discover how gestures can be interpreted and utilized in various application
             </p>
-            <a href="#" data-aos="fade" data-aos-easing="linear" data-aos-duration="1000" data-aos-once="true" class="btn my-4 font-weight-bold atlas-cta cta-green">Get Started</a>
+            <button class="btn my-4 font-weight-bold atlas-cta cta-green" data-aos="fade" data-aos-easing="linear" data-aos-duration="1000" data-aos-once="true" onclick="handleButtonClick()">Get Started</button>
+            <!-- <button onclick="handleButtonClick()" data-aos="fade" data-aos-easing="linear" data-aos-duration="1000" data-aos-once="true" class="btn my-4 font-weight-bold atlas-cta cta-green">Get Started</button> -->
+            <!-- <button id="getStartedBtn" data-aos="fade" data-aos-easing="linear" data-aos-duration="1000" data-aos-once="true"  class="btn my-4 font-weight-bold atlas-cta cta-green">Get Started</button> -->
         </div>
     </div>
     <!-- three-blcok -->
@@ -101,7 +105,7 @@
                 </div>
                 <div data-aos="fade-right" data-aos-duration="1000" data-aos-once="true" class="col-md-6 align-self-center flex-md-first">
                     <!-- <img src="img/feature-2.png" alt="Safe and reliable" class="mx-auto d-block"> -->
-                    <video width="480" height="360" controls style="top: -86px; position: relative;">
+                    <video width="600" height="340" controls style="top: -8px; position: relative; left: -80px;">
                         <source src="img/Basic_ASL_Conversation.mp4" type="video/mp4">
                       </video>
                       
@@ -159,21 +163,21 @@ Thank you for your interest and support!
                             <i class="fa fa-facebook" aria-hidden="true"></i>
                         </a>
                         <div class="dropdown-content">
-                            <a href="facebook_link1" class="link" target="_blank">Nimesh</a>
-                            <a href="facebook_link2" class="link" target="_blank">Adish</a>
-                            <a href="facebook_link3" class="link" target="_blank">Kusan</a>
-                            <a href="facebook_link4" class="link" target="_blank">Simal</a>
+                            <a href="https://www.facebook.com/nimesh.stha.75" class="link" target="_blank">Nimesh</a>
+                            <a href="https://www.facebook.com/aadih.prazapati" class="link" target="_blank">Adish</a>
+                            <a href="https://www.facebook.com/kusan.shrestha.9" class="link" target="_blank">Kusan</a>
+                            <a href="https://www.facebook.com/simal.shakha.5" class="link" target="_blank">Simal</a>
                         </div>
                     </div>
                     <div class="dropdown">
                         <a href="#" class="d-inline-block text-center ml-2">
-                            <i class="fa fa-twitter" aria-hidden="true"></i>
+                            <i class="fa fa-github" aria-hidden="true"></i>
                         </a>
                         <div class="dropdown-content">
-                            <a href="twitter_link1" class="link" target="_blank">Nimesh</a>
-                            <a href="twitter_link2" class="link" target="_blank">Adish</a>
-                            <a href="twitter_link3" class="link" target="_blank">Kusan</a>
-                            <a href="twitter_link4" class="link" target="_blank">Simal</a>
+                            <a href="https://github.com/nimesh69" class="link" target="_blank">Nimesh</a>
+                            <a href="https://github.com/aadish-praz" class="link" target="_blank">Adish</a>
+                            <a href="https://github.com/KhamuKusan7" class="link" target="_blank">Kusan</a>
+                            <a href="https://github.com/simalshakha" class="link" target="_blank">Simal</a>
                         </div>
                     </div>
                     <div class="dropdown">
@@ -181,7 +185,7 @@ Thank you for your interest and support!
                             <i class="fa fa-linkedin" aria-hidden="true"></i>
                         </a>
                         <div class="dropdown-content">
-                            <a href="linkedin_link1" class="link" target="_blank">Nimesh</a>
+                            <a href="https://www.linkedin.com/in/nimesh-shrestha-b22057206/" class="link" target="_blank">Nimesh</a>
                             <a href="linkedin_link2" class="link" target="_blank">Adish</a>
                             <a href="linkedin_link3" class="link" target="_blank">Kusan</a>
                             <a href="linkedin_link4" class="link" target="_blank">Simal</a>
